@@ -4,7 +4,9 @@ const loadingElement = document.querySelector(".loading-element");
 const errorElement = document.querySelector(".error-element");
 const searchText = document.querySelector(".search-text");
 const sortPrice = document.querySelector(".sort-btn");
+let loadMoreBtn = document.querySelector(".load-more-btn");
 let products = [];
+let visibleShowProduct=4;
 const fetchProducts = () =>
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
@@ -23,7 +25,8 @@ fetchProducts();
 // Show Product
 function showProducts(data) {
   productsList.innerHTML = "";
-  data.forEach((item) => {
+  const sixProducts=data.slice(0,visibleShowProduct);
+  sixProducts.forEach((item) => {
     const { title, image, price } = item;
     let productCard = `<li class="product-item">
           <img src="${image}" alt="${title}" class="product-img" />
@@ -64,3 +67,8 @@ sortPrice.addEventListener("click", () => {
   const sortedPrice = [...products].sort((a, b) => b.price - a.price);
   showProducts(sortedPrice);
 });
+
+loadMoreBtn.addEventListener("click" , () => {
+  visibleShowProduct+=4;
+  showProducts(products);
+})
