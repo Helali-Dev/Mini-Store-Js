@@ -3,6 +3,7 @@ const productsList = document.querySelector(".products-list");
 const loadingElement = document.querySelector(".loading-element");
 const errorElement = document.querySelector(".error-element");
 const searchText = document.querySelector(".search-text");
+const sortPrice = document.querySelector(".sort-btn");
 let products = [];
 const fetchProducts = () =>
   fetch("https://fakestoreapi.com/products")
@@ -57,4 +58,9 @@ searchText.addEventListener("input", (e) => {
   });
   // return filterProduct;
   showProducts(filterProduct);
+});
+
+sortPrice.addEventListener("click", () => {
+  const sortedPrice = [...products].sort((a, b) => b.price - a.price);
+  showProducts(sortedPrice);
 });

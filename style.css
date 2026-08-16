@@ -48,6 +48,19 @@ a {
   font-family: varela;
   color: black;
 }
+.sort-btn {
+  height: 2rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  color: #05484e;
+}
+.sort-btn:hover {
+  /* transform: scale(90%); */
+  background-color: #b7d8b7;
+  border: none;
+}
 .condition-wrapper {
   margin-top: 2rem;
   display: flex;
