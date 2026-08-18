@@ -273,3 +273,36 @@ footer {
 
   z-index: 1001;
 }
+.header-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.theme-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background-color: #3b8a8e;
+}
+.theme-btn:hover {
+  background-color: #147c75;
+}
+.dark-mode {
+  background-color: #021314;
+}
+.dark-mode .product-item {
+  background-color: #021314;
+  border: 1px solid white;
+  box-shadow: 3px 3px 5px white;
+}
+.dark-mode .title-product {
+  color: white;
+}
+/* .dark-mode .product-btn {
+  background-color: white;
+}
+.dark-mode .product-price {
+  color: white;
+} */

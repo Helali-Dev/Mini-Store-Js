@@ -8,6 +8,8 @@ let loadMoreBtn = document.querySelector(".load-more-btn");
 let modalContent = document.querySelector(".modal-content");
 const modalOverlay = document.querySelector(".modal-overlay");
 const closeModal = document.querySelector(".close-modal");
+const themButton = document.querySelector(".theme-btn");
+const imageTheme = document.querySelector(".image-theme");
 let products = [];
 let visibleShowProduct = 4;
 const fetchProducts = () =>
@@ -99,6 +101,27 @@ productsList.addEventListener("click", (e) => {
   }
 });
 
-closeModal.addEventListener("click" , () => {
+closeModal.addEventListener("click", () => {
   modalOverlay.classList.remove("active");
-})
+});
+
+// Theme Dark & Light
+const getThemeLocal = localStorage.getItem("theme");
+if (getThemeLocal == "dark") {
+  document.body.classList.toggle("dark-mode");
+} else {
+  document.body.classList.remove("dark-mode");
+}
+themButton.addEventListener("click", nowTheme);
+
+function nowTheme() {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+  imageTheme.src = document.body.classList.contains("dark-mode")
+    ? "assets/sun.svg"
+    : "assets/moon.svg";
+}
